@@ -35,7 +35,7 @@ This README only shows how to execute the final simulation.
 
 If you are interested in simulating the other examples they are incompleted so you might have to correct some errors in order to simulate them.
 
-All the 3D files are stored in https://github.com/DanielPM99/RAA/3D_Models
+All the 3D files are stored in https://github.com/DanielPM99/RAA/tree/main/3D_Models
 
 # How to use
 
@@ -51,7 +51,7 @@ https://drive.google.com/file/d/1KwymGYZsMoNqFG8wyK2DIcMlDNaeZs4q/view?usp=shari
 
 3. Execute on conda the notebook
 
-https://github.com/DanielPM99/RAA/Modules_and_Final_Scene/ensabledSoftware.ipynb
+https://github.com/DanielPM99/RAA/tree/main/Modules_and_Final_Scene/ensabledSoftware.ipynb
 
 # Video
 Here you can see a video of the final simulation RAA.tt
@@ -61,7 +61,7 @@ https://youtu.be/GH4ntcFylD8
 
 ## Other task simulations
 
-https://github.com/DanielPM99/RAA/Modules_and_Final_Scene
+https://github.com/DanielPM99/RAA/tree/main/Modules_and_Final_Scene/
 
 # Contribution
 
