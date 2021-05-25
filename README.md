@@ -53,6 +53,10 @@ https://drive.google.com/file/d/1KwymGYZsMoNqFG8wyK2DIcMlDNaeZs4q/view?usp=shari
 
 https://github.com/DanielPM99/RAA/Modules_and_Final_Scene/ensabledSoftware.ipynb
 
+# Video
+Here you can see a video of the final simulation RAA.tt
+https://youtu.be/GH4ntcFylD8
+
 # Localization
 
 ## Other task simulations
