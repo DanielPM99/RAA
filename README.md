@@ -8,6 +8,7 @@ Automatic Respirator made by a group of students of UAB.
    * [How to use](#how-to-use)
    * [Localization](#localization)
       * [Other task simulations](#other-task-simulations)
+      * [Arduino simulations](#arduino-simulations)
    * [Contribution](#contribution)
    * [Authors](#authors)
 
@@ -35,7 +36,9 @@ This README only shows how to execute the final simulation.
 
 If you are interested in simulating the other examples they are incompleted so you might have to correct some errors in order to simulate them.
 
-All the 3D files are stored in https://github.com/DanielPM99/RAA/tree/main/3D_Models
+All the 3D files and images are stored in https://github.com/DanielPM99/RAA/tree/main/3D_Models
+
+The tinkercad images for the potentiometer and the oximeter are stored in https://github.com/DanielPM99/RAA/tree/main/Tinkercad_Models
 
 # How to use
 
@@ -49,7 +52,7 @@ https://drive.google.com/file/d/1KwymGYZsMoNqFG8wyK2DIcMlDNaeZs4q/view?usp=shari
 
 3. Execute the Coppelia RAA.tt
 
-3. Execute on conda the notebook
+4. Execute on conda the notebook
 
 https://github.com/DanielPM99/RAA/tree/main/Modules_and_Final_Scene/ensabledSoftware.ipynb
 
@@ -62,6 +65,10 @@ https://youtu.be/GH4ntcFylD8
 ## Other task simulations
 
 https://github.com/DanielPM99/RAA/tree/main/Modules_and_Final_Scene/
+
+## Arduino simulations
+
+https://github.com/DanielPM99/RAA/tree/main/Arduino
 
 # Contribution
 
