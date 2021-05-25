@@ -1,0 +1,190 @@
+#include <LiquidCrystal.h> // Entre los símbolos <> buscará en la carpeta de librerías configurada
+ 
+
+#define COLS 16
+#define ROWS 2
+#define VELOCIDAD 100
+ 
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+
+const int pulsadorPin = 7;
+const int ledPin = 13;
+
+const String m0 = "Metode manual entrada de parametres: ";
+const String m1 = "Volum aire (50-90): ";
+const String m2 = "Respiracions per minut (5-30) ";
+const String m3 = "Radi inspiracio /expiracio (1, 2 o 3) ";
+const String m4 = "Confirmar? ";
+const String m5 = "Iniciant... ";
+
+
+void encenderLed(){
+  
+	// Leemos el valor del pin
+    int valorPulsador = digitalRead(pulsadorPin);
+ 
+    // Encendemos o apagamos el pin del LED según convenga
+    if (valorPulsador == HIGH) {
+        digitalWrite(ledPin, HIGH);
+    }
+    else {
+        digitalWrite(ledPin, LOW);
+    }
+}
+
+void escribirTxt(String m){
+  
+	// Obtenemos el tamaño del texto
+  int tam_texto=m.length();
+ 
+   
+  // Desplazamos el texto hacia la izquierda en la segunda fila
+  for(int i=16;i>=1;i--)
+  {
+    // Limpiamos pantalla
+    //lcd.clear();
+ 
+    //Situamos el cursor
+    lcd.setCursor(i, 1);
+ 
+    // Escribimos el texto
+    lcd.print(m);
+ 
+    // Esperamos
+    delay(VELOCIDAD);
+  }
+ 
+  // Mostramos salida del texto por la izquierda
+  for(int i=1; i<=tam_texto ; i++)
+  {
+    String texto = m.substring(i-1);
+ 
+    //lcd.clear(); 
+    lcd.setCursor(0, 1);
+    lcd.print(texto);
+    delay(VELOCIDAD);
+  }  
+}
+
+void escribirVal(String m, String u){
+  
+  int tam_texto=m.length()+u.length();
+  
+  //lcd.clear(); 
+  lcd.setCursor(COLS-tam_texto, 1);
+  lcd.print(m);
+  lcd.setCursor(COLS-tam_texto+m.length(), 1);
+  lcd.print(u);
+  
+}
+
+
+int leerPotencia(int min, int max, String units){
+ 
+  //Variable donde almacenaremos el valor del potenciometro
+  long valor;
+  
+  // leemos del pin A0 valor
+  valor = analogRead(A0);
+  
+  valor = min+valor/(1023/(max-min));
+ 
+  escribirVal(String(valor), units);
+  
+  return valor;
+  
+}
+
+void bombejarAire(int a, int b, int c){
+  
+  int speed = b*5;
+  int time, time1,time2;
+  
+  if(c!=1000)
+  {
+    if(c==2){
+  		time1=time*0.5;
+    }
+    else{
+      time2=time*0.5;
+    }
+  }
+  
+  analogWrite(10, speed);  //ENABLE -PWM
+  digitalWrite(9, LOW);    //DIR1
+  digitalWrite(8, HIGH);
+  delay(time);
+  
+  digitalWrite(10, speed);   ///DIR2
+  digitalWrite(8, LOW);
+  analogWrite(9, HIGH);
+  delay(time);
+}
+	
+  
+void setup() {
+
+  Serial.begin(9600);
+  lcd.begin(COLS, ROWS);
+  
+  // Activamos los pines de entrada y salida
+  pinMode(pulsadorPin, INPUT);
+  pinMode(ledPin, OUTPUT);
+  pinMode(10, OUTPUT); //enableA
+  pinMode(9, OUTPUT);
+  pinMode(8, OUTPUT);
+
+}
+
+
+
+void loop() {
+
+  
+  escribirTxt(m0);
+  escribirTxt(m1);
+  
+  int ml,rpm,modo;
+  
+  int valorPulsador = digitalRead(pulsadorPin);
+  
+  while(valorPulsador==HIGH){
+    ml = leerPotencia(50,90, "ml");
+    valorPulsador = digitalRead(pulsadorPin);
+  }
+  
+  escribirTxt(m2);
+  
+  valorPulsador = digitalRead(pulsadorPin);
+  
+  while(valorPulsador==HIGH){
+    rpm = leerPotencia(5,30, "rpm");
+    valorPulsador = digitalRead(pulsadorPin);
+  }
+  
+  escribirTxt(m3);
+  
+  valorPulsador = digitalRead(pulsadorPin);
+  
+  while(valorPulsador==HIGH){
+    modo = leerPotencia(1,3, " mode");
+    valorPulsador = digitalRead(pulsadorPin);
+  }
+  
+  escribirTxt(m4);
+  valorPulsador = digitalRead(pulsadorPin);
+  
+  while(valorPulsador==HIGH){
+  	valorPulsador = digitalRead(pulsadorPin);
+  }
+  
+  escribirTxt(m5);
+  
+ 
+  while(1){
+    bombejarAire(ml, rpm, modo); 
+    String txto = "Valors: "+String(ml)+ "ml "+String(rpm)+"r.m "+"Mod:"+String(modo)+" ";
+    escribirTxt(txto);
+  }
+  
+}  
