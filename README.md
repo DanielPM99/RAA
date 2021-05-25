@@ -77,6 +77,9 @@ Any contribution is welcome!!
 # Authors
 
 The stundents of UAB:
+  
   -Victor Arauzo
+  
   -Roger Benedito
+  
   -Daniel Parra
