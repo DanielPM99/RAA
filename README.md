@@ -78,8 +78,8 @@ Any contribution is welcome!!
 
 The stundents of UAB:
   
-  -Victor Arauzo
+    -Victor Arauzo
   
-  -Roger Benedito
+    -Roger Benedito
   
-  -Daniel Parra
+    -Daniel Parra
