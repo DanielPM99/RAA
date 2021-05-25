@@ -43,10 +43,11 @@ All the 3D files are stored in https://github.com/DanielPM99/RAA/3D_Models
 
 > git clone https://github.com/DanielPM99/RAA.git
 
+2. Download this scene and put it in Modules and Final Scene
 
-2. Execute the Coppelia final scene
+https://drive.google.com/file/d/1KwymGYZsMoNqFG8wyK2DIcMlDNaeZs4q/view?usp=sharing
 
-https://github.com/DanielPM99/RAA/Modules_and_Final_Scene/RAA.tt
+3. Execute the Coppelia RAA.tt
 
 3. Execute on conda the notebook
 
